@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        .message_board {
+            width: 300px;
+            height: 100px;
+
+        }
+
+        li {
+            list-style: none;
+            background-color: rgb(243, 214, 219);
+            padding: 10px;
+            border-radius: 15px;
+            height: 50px;
+            width: 200px;
+            margin-left: 0;
+        }
+
+        ul {
+            margin-left: 0;
+            padding: 0px;
+        }
+
+        li a {
+            float: right;
+
+            font-size: 12px;
+            color: #0fb446;
+        }
+
+        button {
+            margin-left: 200px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h2>留言板</h2>
+    <div class="message_board">
+        <textarea name="" id="leave_a_message" cols="35" rows="5"></textarea>
+        <button>发表留言</button>
+
+    </div>
+    <ul class="message">
+
+    </ul>
+
+
+    <script>
+        var mb = document.querySelector('.message_board')
+        var lam = mb.children[0];
+        var btn = mb.children[1];
+
+        var ul = document.querySelector('ul')
+
+
+        btn.onclick = function () {
+            if (lam.value == '') {
+                alert('你还没有输入文字')
+                return false
+            } else {
+                var li = document.createElement("li")
+                li.innerHTML = lam.value + "<a href='javascript:;'>删除留言</a>"
+                ul.insertBefore(li, ul.children[0])
+                lam.value = "";
+                var a = document.querySelectorAll('a')
+
+                for (var i = 0; i < a.length; i++) {
+                    a[i].onclick = function () {
+                        ul.removeChild(this.parentNode)
+
+                    }
+                }
+
+
+            }
+        }
+
+
+
+    </script>
+
+</html>

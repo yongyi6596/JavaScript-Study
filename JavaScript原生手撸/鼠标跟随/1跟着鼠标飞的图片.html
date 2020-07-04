@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    img {
+      position: absolute;
+    }
+    
+  
+  </style>
+</head>
+<body>
+<img src="images/tianshi.gif" id="ts">
+<script>
+  var ts = document.getElementById("ts");
+  //onmousemove 当鼠标移动时，触发事件
+  document.onmousemove = function (e) {
+    var e = e || window.event;
+    
+    //用于获取鼠标针对页面可视区域的横纵坐标
+    //console.log(e.clientX,e.clientY);
+    
+    //将鼠标的坐标分别设置给box的left和top
+    ts.style.left = e.clientX + "px";
+    ts.style.top = e.clientY + "px";
+    
+  };
+</script>
+</body>
+</html>

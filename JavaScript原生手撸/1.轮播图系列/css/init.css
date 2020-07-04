@@ -1,0 +1,280 @@
+/* 把我们所有标签的内外边距清零 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* em 和 i 斜体的文字不倾斜 */
+em,
+i {
+  font-style: normal;
+}
+/* 去掉li 的小圆点 */
+li {
+  list-style: none;
+}
+
+img {
+  /* border 0 照顾低版本浏览器 如果 图片外面包含了链接会有边框的问题 */
+  border: 0;
+  /* 取消图片底侧有空白缝隙的问题 */
+  vertical-align: middle;
+}
+
+button {
+  /* 当我们鼠标经过button 按钮的时候，鼠标变成小手 */
+  cursor: pointer;
+  border: 0;
+}
+
+a {
+  color: #666;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #c81623;
+}
+
+button,
+input {
+  /* "\5B8B\4F53" 就是宋体的意思 这样浏览器兼容性比较好 */
+  font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB,
+    "\5B8B\4F53", sans-serif;
+  border: 0;
+}
+
+body {
+  /* CSS3 抗锯齿形 让文字显示的更加清晰 */
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB,
+    "\5B8B\4F53", sans-serif;
+  color: #666;
+}
+@font-face {
+  font-family: "icomoon";
+  src: url("../icomoon/fonts/icomoon.eot?tomleg");
+  src: url("../icomoon/fonts/icomoon.eot?tomleg#iefix")
+      format("embedded-opentype"),
+    url("../icomoon/fonts/icomoon.ttf?tomleg") format("truetype"),
+    url("../icomoon/fonts/icomoon.woff?tomleg") format("woff"),
+    url("../icomoon/fonts/icomoon.svg?tomleg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-cheveron-down:before {
+  content: "\e91e";
+}
+.icon-cheveron-left:before {
+  content: "\e91f";
+}
+.icon-cheveron-right:before {
+  content: "\e920";
+}
+.icon-cheveron-up:before {
+  content: "\e921";
+}
+.icon-location1:before {
+  content: "\e922";
+}
+.icon-location-current:before {
+  content: "\e923";
+}
+.icon-mic:before {
+  content: "\e924";
+}
+.icon-angellist:before {
+  content: "\e900";
+}
+.icon-apache:before {
+  content: "\e901";
+  color: #d22128;
+}
+.icon-bower:before {
+  content: "\e90a";
+  color: #ef5734;
+}
+.icon-circleci:before {
+  content: "\e90b";
+}
+.icon-civicrm:before {
+  content: "\e90c";
+  color: #81c459;
+}
+.icon-co-op:before {
+  content: "\e902";
+  color: #00b1e7;
+}
+.icon-codacy:before {
+  content: "\e903";
+}
+.icon-codeigniter:before {
+  content: "\e904";
+  color: #ee4623;
+}
+.icon-codepen:before {
+  content: "\e905";
+}
+.icon-dell:before {
+  content: "\e906";
+  color: #007db8;
+}
+.icon-discourse:before {
+  content: "\e907";
+}
+.icon-discover:before {
+  content: "\e908";
+  color: #ff6000;
+}
+.icon-baidu:before {
+  content: "\e910";
+  color: #2319dc;
+}
+.icon-bitdefender:before {
+  content: "\e911";
+  color: #ed1c24;
+}
+.icon-bitly:before {
+  content: "\e912";
+  color: #ee6123;
+}
+.icon-campaignmonitor:before {
+  content: "\e913";
+  color: #509cf6;
+}
+.icon-cashapp:before {
+  content: "\e914";
+  color: #00c244;
+}
+.icon-castorama:before {
+  content: "\e915";
+  color: #0078d7;
+}
+.icon-castro:before {
+  content: "\e916";
+  color: #00b265;
+}
+.icon-cevo:before {
+  content: "\e917";
+  color: #1eabe2;
+}
+.icon-chase:before {
+  content: "\e918";
+  color: #117aca;
+}
+.icon-circle:before {
+  content: "\e919";
+  color: #8669ae;
+}
+.icon-circleci1:before {
+  content: "\e90d";
+}
+.icon-co-op1:before {
+  content: "\e90f";
+  color: #00b1e7;
+}
+.icon-codacy1:before {
+  content: "\e90e";
+}
+.icon-codecademy:before {
+  content: "\e91a";
+  color: #1f4056;
+}
+.icon-codeclimate:before {
+  content: "\e91c";
+}
+.icon-codecov:before {
+  content: "\e91d";
+  color: #f01f7a;
+}
+.icon-home2:before {
+  content: "\e909";
+}
+.icon-connection:before {
+  content: "\e91b";
+}
+.icon-phone:before {
+  content: "\e942";
+}
+.icon-phone-hang-up:before {
+  content: "\e943";
+}
+.icon-location:before {
+  content: "\e947";
+}
+.icon-location2:before {
+  content: "\e948";
+}
+.icon-search:before {
+  content: "\e986";
+}
+.icon-volume-increase:before {
+  content: "\ea2b";
+}
+.icon-volume-decrease:before {
+  content: "\ea2c";
+}
+.icon-arrow-up2:before {
+  content: "\ea3a";
+}
+.icon-arrow-right2:before {
+  content: "\ea3c";
+}
+.icon-arrow-down2:before {
+  content: "\ea3e";
+}
+.icon-arrow-left2:before {
+  content: "\ea40";
+}
+.icon-mic1:before {
+  content: "\e925";
+}
+.icon-books:before {
+  content: "\e926";
+}
+.icon-cart:before {
+  content: "\e93a";
+}
+.icon-mobile:before {
+  content: "\e958";
+}
+.icon-mobile2:before {
+  content: "\e959";
+}
+.icon-menu:before {
+  content: "\e9bd";
+}
+.icon-loop2:before {
+  content: "\ea2e";
+}
+.icon-circle-up:before {
+  content: "\ea41";
+}
+.icon-circle-right:before {
+  content: "\ea42";
+}
+.icon-circle-down:before {
+  content: "\ea43";
+}
+.icon-circle-left:before {
+  content: "\ea44";
+}

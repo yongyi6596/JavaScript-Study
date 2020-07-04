@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    
+    .wrap {
+      width: 300px;
+      margin: 100px auto 0;
+    }
+    
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+      width: 300px;
+    }
+    
+    th,
+    td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+    
+    th {
+      background-color: #09c;
+      font: bold 16px "微软雅黑";
+      color: #fff;
+    }
+    
+    td {
+      font: 14px "微软雅黑";
+    }
+    
+    tbody tr {
+      background-color: #f0f0f0;
+    }
+    
+    tbody tr:hover {
+      cursor: pointer;
+      background-color: #fafafa;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <table>
+    <!--全选反选按钮所在行-->
+    <thead>
+    <tr>
+      <th>
+        <input type="checkbox" id="selectAll"/>
+      </th>
+      <th>菜名</th>
+      <th>饭店</th>
+    </tr>
+    </thead>
+    
+    <!--每一个菜的选项-->
+    <tbody id="cai">
+    <tr>
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>红烧肉</td>
+      <td>田老师</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>西红柿鸡蛋</td>
+      <td>田老师</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>红烧狮子头</td>
+      <td>田老师</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>日式肥牛</td>
+      <td>田老师</td>
+    </tr>
+    
+    </tbody>
+  </table>
+</div>
+<script>
+  //1 获取元素
+  var selectAll = document.getElementById("selectAll");//全选按钮
+  var cbs = document.getElementById("cai").getElementsByTagName("input");//下面的四个小选项
+  
+  
+  //2 给selectAll设置点击事件
+  selectAll.onclick = function () {
+    //根据当前selectAll的选中属性值，设置底部的四个cbs的状态
+    for (var i = 0; i < cbs.length; i++) {
+      
+      //if(this.checked == true){
+      //  cbs[i].checked = true;
+      //}else{
+      //  cbs[i].checked = false;
+      //}
+      
+      //化简：
+      cbs[i].checked = this.checked;
+    }
+  };
+  
+  
+  //3 当点击底部的某个cb时，可能会选中顶部的selectAll
+  //只有当下面的所有cb均选中，才可以选中selectAll
+   for (var i = 0; i < cbs.length; i++) {
+     cbs[i].onclick = function () {
+       var flag = true;//假设本次点击后可以选中selectAll
+       for (var i = 0; i < cbs.length; i++) {
+         if (cbs[i].checked == false) {
+           //假设失败，设置条件为false
+           flag = false;
+           break;
+         }
+       }
+       //根据flag的值设置操作
+       //if(flag){
+       //  selectAll.checked = true;
+       //}else{
+       //  selectAll.checked = false;
+       //}
+  
+       //化简：
+       selectAll.checked = flag;
+     };
+   }
+
+
+</script>
+</body>
+</html>

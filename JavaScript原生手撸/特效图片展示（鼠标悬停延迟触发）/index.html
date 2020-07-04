@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div, ol, ul, li {
+            list-style: none;
+        }
+
+        .content {
+            overflow: hidden;
+            border: 1px solid #333;
+            position: absolute;
+            top: 20px;
+            left: 200px;
+        }
+
+        .content ul {
+            float: left;
+        }
+
+        .content li {
+            width: 148px;
+            height: 148px;
+            border: 1px solid #333;
+            background-color: pink;
+            transition: all 1s;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <ul>
+        <!--<li>11</li>-->
+        <!--<li>12</li>-->
+        <!--<li>13</li>-->
+        <!--<li>14</li>-->
+        <!--<li>15</li>-->
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+    </ul>
+    <ul>
+        <!--<li>21</li>-->
+        <!--<li>22</li>-->
+        <!--<li>23</li>-->
+        <!--<li>24</li>-->
+        <!--<li>25</li>-->
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+    </ul>
+    <ul>
+        <!--<li>31</li>-->
+        <!--<li>32</li>-->
+        <!--<li>33</li>-->
+        <!--<li>34</li>-->
+        <!--<li>35</li>-->
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+    </ul>
+    <ul>
+        <!--<li>41</li>-->
+        <!--<li>42</li>-->
+        <!--<li>43</li>-->
+        <!--<li>44</li>-->
+        <!--<li>45</li>-->
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+    </ul>
+    <ul>
+        <!--<li>51</li>-->
+        <!--<li>52</li>-->
+        <!--<li>53</li>-->
+        <!--<li>54</li>-->
+        <!--<li>55</li>-->
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+        <li style="background: url(images/001.jpeg); background-size: 350px 350px"></li>
+    </ul>
+</div>
+
+<script>
+    var box = document.querySelector('.content');
+    var aUl = box.querySelectorAll('ul');    // 所有的 ul （5个）
+    var liAll = box.querySelectorAll('li');  // 所有的 li （25个）
+    var timer = null;
+
+    function callback(e) {
+        var tar = e.target || e.srcElement;
+        for (var i = 0; i < liAll.length; i++) {
+            liAll[i].style.height = '98px';
+            liAll[i].style.width = '98px';
+        }
+        var aLi = this.children;
+        for (i = 0; i < aLi.length; i++) {
+            aLi[i].index = i;
+        }
+        for (i = 0; i < aUl.length; i++) {
+            aUl[i].children[tar.index].style.height = '348px';
+            aLi[i].style.width = '348px';
+        }
+    }
+
+    // 悬停 1 秒以后触发 callback，不够 1 秒不触发
+    for (var i = 0; i < aUl.length; i++) {
+        aUl[i].onmouseover = function (e) {
+            e = e || window.event;
+            var _this = this;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                callback.call(_this, e);
+            }, 1000);
+        };
+        // aUl[i].onmousemove = function (e) {
+        //     e = e || window.event;
+        //     var _this = this;
+        //     clearTimeout(timer);
+        //     timer = setTimeout(function () {
+        //         callback.call(_this, e);
+        //     }, 1000);
+        // };
+        aUl[i].onmouseout = function () {
+            clearTimeout(timer);
+        };
+    }
+
+
+</script>
+
+</body>
+</html>
